@@ -41,21 +41,5 @@ jobs:
         make html
     - uses: actions/upload-artifact@v4
       with:
-        name: save-html-docs
+        name: panda3d-docs
         path: _build/
-
-  build-pdf:
-    name: Build PDF
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v1
-    - uses: actions/setup-python@v1
-      with:
-        python-version: '3.7'
-    - name: Install requirements
-      run: |
-        sudo apt-get install --no-install-recommends graphviz latexmk texlive-fonts-recommended texlive-latex-extra tex-gyre
-        pip install -r requirements.txt
-    - name: Build PDF manual
-      run: |
-        make latexpdf

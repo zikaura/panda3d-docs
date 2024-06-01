@@ -39,6 +39,10 @@ jobs:
     - name: Build HTML manual
       run: |
         make html
+    - uses: actions/upload-artifact@v4
+      with:
+        name: save-html-docs
+        path: _build/
 
   build-pdf:
     name: Build PDF
